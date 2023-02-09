@@ -10,27 +10,27 @@ fn main() {
     //the max is inclusive here
 
     println!("The secret number: {secret_number}");
+    
+    loop {
+        println!("Please input your guess.");
 
-    println!("Please input your guess.");
+        let mut guess = String::new();
+        // mut means that the var "guess" is mutable
 
-    let mut guess = String::new();
-    // mut means that the var "guess" is mutable
+        io::stdin().read_line(&mut guess).expect("Failed to read line");
+        //& means that here its a reference to the mutable var "guess"
+        // references can be used without having to copy the entire var in memory
 
-    io::stdin().read_line(&mut guess).expect("Failed to read line");
-    //& means that here its a reference to the mutable var "guess"
-    // references can be used without having to copy the entire var in memory
+        let guess: u32 = guess.trim().parse().expect("Please enter a number!");
+        //trim removes any whithespace, parse converts string to number (could fail, hence the except)
+        //the reuse of "guess" is a shadowing, often used to convert one datatype to another
 
-    let guess: u32 = guess.trim().parse().expect("Please enter a number!");
-    //trim removes any whithespace, parse converts string to number (could fail, hence the except)
-    //the reuse of "guess" is a shadowing, often used to convert one datatype to another
+        println!("You guessed {guess}");
 
-    println!("You guessed {guess}");
-
-    match guess.cmp(&secret_number) {
-        Ordering::Less => println!("Too small!"),
-        Ordering::Greater => println!("Too big!"),
-        Ordering::Equal => println!("You win!"),
+        match guess.cmp(&secret_number) {
+            Ordering::Less => println!("Too small!"),
+            Ordering::Greater => println!("Too big!"),
+            Ordering::Equal => println!("You win!"),
+        }
     }
-
-
 }
