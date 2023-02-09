@@ -10,7 +10,7 @@ fn main() {
     //the max is inclusive here
 
     println!("The secret number: {secret_number}");
-    
+
     loop {
         println!("Please input your guess.");
 
@@ -21,16 +21,23 @@ fn main() {
         //& means that here its a reference to the mutable var "guess"
         // references can be used without having to copy the entire var in memory
 
-        let guess: u32 = guess.trim().parse().expect("Please enter a number!");
-        //trim removes any whithespace, parse converts string to number (could fail, hence the except)
-        //the reuse of "guess" is a shadowing, often used to convert one datatype to another
+        let guess: u32 = match guess.trim().parse() {
+            Ok(num) => num,
+            Err(_) => continue,
+
+        };
+        //trim removes any whithespace, parse converts string to number
+        //if parse fails because guess is not a number, then try again
 
         println!("You guessed {guess}");
 
         match guess.cmp(&secret_number) {
             Ordering::Less => println!("Too small!"),
             Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => println!("You win!"),
+            Ordering::Equal => {
+                println!("You win!");
+                break;
+            }
         }
     }
 }
