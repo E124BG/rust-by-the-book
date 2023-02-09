@@ -10,6 +10,7 @@ fn main() {
     //the max is inclusive here
 
     println!("The secret number: {secret_number}");
+    //comment
 
     loop {
         println!("Please input your guess.");
