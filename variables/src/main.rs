@@ -13,9 +13,24 @@ fn main() {
 
     const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
 
+    println!("There are {THREE_HOURS_IN_SECONDS} seconds in three hours");
+
     //shadowing
 
-    
+    //a var can be shadowed by a second var (it takes its name and any further reference
+    //will refer to the second var until it is shadowed itself or the scope ends)
+    //we can shadow a var by using the same name following the let keyword
+
+    let y = 5;
+
+    let y = y + 1;
+
+    {
+        let y = y * 2;
+        println!("value of y in local scope: {y}");
+    }
+
+    println!("value of y in outer scope: {y}");
 }
 
 // fn error1() {
