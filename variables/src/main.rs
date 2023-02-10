@@ -21,16 +21,25 @@ fn main() {
     //will refer to the second var until it is shadowed itself or the scope ends)
     //we can shadow a var by using the same name following the let keyword
 
+    //we technically create a new var so no need to make it mutable
+
     let y = 5;
 
     let y = y + 1;
 
     {
+        //shadowing only in this scope
         let y = y * 2;
-        println!("value of y in local scope: {y}");
+        println!("value of y in inner scope: {y}");
     }
 
     println!("value of y in outer scope: {y}");
+
+    //we can also have a shadowing var with another type
+    //i.e. a var that counts the spaces in another var
+
+    // let spaces = "   ";
+    // let spaces = spaces.len();
 }
 
 // fn error1() {
