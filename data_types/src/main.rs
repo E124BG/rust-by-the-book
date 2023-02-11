@@ -31,9 +31,9 @@ fn main() {
     //f64 is double precision
     //f32 is single precision
 
-    let x = 2.03;
+    let _x = 2.03;
 
-    let y : f32 = 2.0;
+    let _y : f32 = 2.0;
 
     //numeric operations
 
@@ -60,9 +60,41 @@ fn main() {
 
     //Boolean type
 
-    let t = true;
+    let _t = true;
 
-    let f : bool = false; //with explicit type annotation
+    let _f : bool = false; //with explicit type annotation
+
+
+    //Character type
+
+    let _c = 'z';
+    let _z : char = 'Z'; //with explicit type annotation
+    let heart_eyed_cat = '😻'; //as long as we have a unicode char, we can use it
+
+    println!("Cat with heart-eyes (unicode char): {heart_eyed_cat}");
+
+    //Compound types
+    //are groups of multiple values
+
+    //tuple type
+    //each element has a type and they don't have to be the same
+    //tuples have a fixed length, once declared we can't change it
+
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+
+    //destructuration of a tuple
+
+    let (_five_hundred, _six_point_four, _one) = tup;
+
+    //direct access
+
+    let _five_hundred = tup.0;
+    let _six_point_four = tup.1;
+    let _one = tup.2;
+
+
+
+
 
 
 }
