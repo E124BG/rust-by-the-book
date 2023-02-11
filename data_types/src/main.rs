@@ -58,5 +58,11 @@ fn main() {
     let remainder = 43 % 5;
     println!("This is 43 % 5: {remainder}");
 
+    //Boolean type
+
+    let t = true;
+
+    let f : bool = false; //with explicit type annotation
+
 
 }
