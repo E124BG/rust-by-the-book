@@ -92,6 +92,25 @@ fn main() {
     let _six_point_four = tup.1;
     let _one = tup.2;
 
+    //empty tuple is called "unit" ()
+    //expressions implicitely return the unit value if they don't return anything else
+
+    //array type
+    //every element in an array has the same type
+    //they have a fixed length
+
+    let arr = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    //useful when we want to use stack rather than heap
+    //or when we want to ensure we always have the same number of elements
+
+    let _arr_full_of_threes = [3; 5];
+    let third_month = arr[2];
+
+    println!("Third month of the year: {third_month}");
+
+
+
+
 
 
 
