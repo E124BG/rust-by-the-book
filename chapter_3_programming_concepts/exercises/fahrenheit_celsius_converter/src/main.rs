@@ -16,7 +16,7 @@ fn main() {
 
 
         if choice_of_conv == "c" || choice_of_conv == "C"{
-        loop{
+
             println!("Please enter a temperature in Celsius.");
 
             let mut celsius_input = String::new();
@@ -24,19 +24,34 @@ fn main() {
 
             
 
-            let celsius_input: i32 = match celsius_input.trim().parse() {
+            let celsius_input: f64 = match celsius_input.trim().parse() {
                 Ok(num) => num,
                 Err(_)=> continue,
             };
 
             println!("Celsius: {celsius_input}");
             
-            let mut fahrenheit: i32 = celsius_input * 9/2 + 32;
+            let mut fahrenheit: f64 = celsius_input * (9.0/5.0) + 32.0;
 
             println!("Fahrenheit: {fahrenheit}");
-        }
     }else if choice_of_conv == "f" || choice_of_conv == "F"{
-        println!("Fahrenheit mode");
+        println!("Please enter a temperature in Fahrenheit.");
+
+            let mut fahrenheit_input = String::new();
+            io::stdin().read_line(&mut fahrenheit_input).expect("Failure to read line");
+
+            
+
+            let fahrenheit_input: f64 = match fahrenheit_input.trim().parse() {
+                Ok(num) => num,
+                Err(_)=> continue,
+            };
+
+            println!("Fahrenheit: {fahrenheit_input}");
+            
+            let mut celsius: f64 = ((fahrenheit_input - 32.0) * 5.0)/9.0 ;
+
+            println!("Celsius: {celsius}");
 
     }
     }
