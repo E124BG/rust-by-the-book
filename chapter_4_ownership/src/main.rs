@@ -61,5 +61,16 @@ fn main() {
         //println!("{}",s1);        will produce an error error[E0382]: borrow of moved value: `s1`
     }
 
+    //Create a deep copy: clone method
+
+    {
+        let mut s1 = String::from("hello");
+        let mut s2 = s1.clone();
+        s1.push_str(", world!");
+
+        println!("s1 = {}, s2 = {}",s1,s2);
+
+    }
+
 
 }
