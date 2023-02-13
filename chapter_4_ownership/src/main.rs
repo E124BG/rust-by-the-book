@@ -73,10 +73,17 @@ fn main() {
     }
 
     //Values on stack can be copied without cloning
+    //integer types like u32
+    //Boolean types
+    //floating-point types like f64
+    //character type char
+    //tuples that contain the above mentionned types
+    
     let x = 5;
     let y = x;
 
     println!("x = {}, y = {}", x, y);
+    
 
 
 }
