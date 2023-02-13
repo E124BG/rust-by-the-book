@@ -60,4 +60,6 @@ fn main() {
 
         //println!("{}",s1);        will produce an error error[E0382]: borrow of moved value: `s1`
     }
+
+
 }
