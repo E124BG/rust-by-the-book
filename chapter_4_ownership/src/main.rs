@@ -17,5 +17,17 @@ fn main() {
     //parts of ownership addressed problems
 
     //OWNERSHIP
+
+    //each value has an owner
+    //there is only one owner at a time
+    //when owner is out of scope, value is dropped
+
+
     println!("Hello, world!");
+
+    {
+                            //s is not valid here because not yet declared
+        let _s = "hello";    //s is valid until end of scope
+
+    }                       //s is not valid anymore (out of scope)
 }
