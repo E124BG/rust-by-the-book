@@ -19,7 +19,7 @@ fn main() {
     //OWNERSHIP
 
     //each value has an owner
-    //there is only one owner at a time
+    //there is only one owner at a timeS
     //when owner is out of scope, value is dropped
 
     {
