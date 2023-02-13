@@ -31,7 +31,7 @@ fn main() {
 
     //String and string literals
 
-    //strings (or string literals) are hardcoded values in our program.
+    //string literals are hardcoded values in our program.
     //Rust has another type, String, this type manages data allocated on the heap and
     //as such is able to store an ammount of text unknown at compile time.
 
@@ -42,4 +42,22 @@ fn main() {
     s.push_str(", world!"); //psuh_str() appends a literal to a String
 
     println!("{}", s);
+
+    //So Strings can be mutated, not string literals
+
+    {
+
+        let _s0 = String::from("This is a String");
+
+
+    }//the space taken in the heap by the String is freed when it goes out of scope
+        //implicitely, the function "drop" is called upon it
+
+    { let s1 = String::from("hello");//s1 is created in the heap, with a pointer on the stack
+        let s2 = s1;                 // s2 copies informations of the pointer, the data in heap is not copied
+                                    //to avoid freeing 2 times the same space at the end
+                                    //the s1 var is no longer valid, we cannot use it anymore
+
+        //println!("{}",s1);        will produce an error error[E0382]: borrow of moved value: `s1`
+    }
 }
