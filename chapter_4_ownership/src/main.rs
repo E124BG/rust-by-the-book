@@ -22,12 +22,24 @@ fn main() {
     //there is only one owner at a time
     //when owner is out of scope, value is dropped
 
-
-    println!("Hello, world!");
-
     {
                             //s is not valid here because not yet declared
         let _s = "hello";    //s is valid until end of scope
 
     }                       //s is not valid anymore (out of scope)
+
+
+    //String and string literals
+
+    //strings (or string literals) are hardcoded values in our program.
+    //Rust has another type, String, this type manages data allocated on the heap and
+    //as such is able to store an ammount of text unknown at compile time.
+
+    //String from string litteral
+
+    let mut s = String::from("Hello");
+
+    s.push_str(", world!"); //psuh_str() appends a literal to a String
+
+    println!("{}", s);
 }
