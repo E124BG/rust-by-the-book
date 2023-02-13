@@ -72,5 +72,11 @@ fn main() {
 
     }
 
+    //Values on stack can be copied without cloning
+    let x = 5;
+    let y = x;
+
+    println!("x = {}, y = {}", x, y);
+
 
 }
