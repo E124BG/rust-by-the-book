@@ -23,11 +23,9 @@ fn main() {
     //when owner is out of scope, value is dropped
 
     {
-                            //s is not valid here because not yet declared
-        let _s = "hello";    //s is valid until end of scope
-
-    }                       //s is not valid anymore (out of scope)
-
+        //s is not valid here because not yet declared
+        let _s = "hello"; //s is valid until end of scope
+    } //s is not valid anymore (out of scope)
 
     //String and string literals
 
@@ -46,17 +44,15 @@ fn main() {
     //So Strings can be mutated, not string literals
 
     {
-
         let _s0 = String::from("This is a String");
+    } //the space taken in the heap by the String is freed when it goes out of scope
+      //implicitely, the function "drop" is called upon it
 
-
-    }//the space taken in the heap by the String is freed when it goes out of scope
-        //implicitely, the function "drop" is called upon it
-
-    { let s1 = String::from("hello");//s1 is created in the heap, with a pointer on the stack
-        let s2 = s1;                 // s2 copies informations of the pointer, the data in heap is not copied
-                                    //to avoid freeing 2 times the same space at the end
-                                    //the s1 var is no longer valid, we cannot use it anymore
+    {
+        let s1 = String::from("hello"); //s1 is created in the heap, with a pointer on the stack
+        let s2 = s1; // s2 copies informations of the pointer, the data in heap is not copied
+                     //to avoid freeing 2 times the same space at the end
+                     //the s1 var is no longer valid, we cannot use it anymore
 
         //println!("{}",s1);        will produce an error error[E0382]: borrow of moved value: `s1`
     }
@@ -68,8 +64,7 @@ fn main() {
         let mut s2 = s1.clone();
         s1.push_str(", world!");
 
-        println!("s1 = {}, s2 = {}",s1,s2);
-
+        println!("s1 = {}, s2 = {}", s1, s2);
     }
 
     //Values on stack can be copied without cloning
@@ -83,76 +78,79 @@ fn main() {
     let y = x;
 
     println!("x = {}, y = {}", x, y);
-    
+
     //Ownership and functions
 
     //Passing a value to a function will do exactly as an assignment does (copy or move)
 
-    let s = String::from("hello");  // s comes into scope
+    let s = String::from("hello"); // s comes into scope
     let s1 = s.clone();
 
-    takes_ownership(s);             // s's value moves into the function...
-                                    // ... and so is no longer valid here
+    takes_ownership(s); // s's value moves into the function...
+                        // ... and so is no longer valid here
 
-    println!("{}",s1);              //only the clone can be used (we made a deep copy)
+    println!("{}", s1); //only the clone can be used (we made a deep copy)
 
-    let x = 5;                      // x comes into scope
+    let x = 5; // x comes into scope
 
-    makes_copy(x);                  // x would move into the function,
-                                    // but i32 is Copy, so it's okay to still
-                                    // use x afterward
+    makes_copy(x); // x would move into the function,
+                   // but i32 is Copy, so it's okay to still
+                   // use x afterward
 
+    {
+        let s1 = gives_ownership(); // gives_ownership moves its return
+                                    // value into s1
 
-{    let s1 = gives_ownership();         // gives_ownership moves its return
-                                        // value into s1
+        let s2 = String::from("hello"); // s2 comes into scope
 
-    let s2 = String::from("hello");     // s2 comes into scope
+        let s3 = takes_and_gives_back(s2); // s2 is moved into
+                                           // takes_and_gives_back, which also
+                                           // moves its return value into s3
+    } // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
+      // happens. s1 goes out of scope and is dropped.}
 
-    let s3 = takes_and_gives_back(s2);  // s2 is moved into
-                                        // takes_and_gives_back, which also
-                                        // moves its return value into s3
-} // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
-  // happens. s1 goes out of scope and is dropped.}
+    //References and Borrowing
 
-//References and Borrowing
+    //By using a reference instead of a pointer, we do not pass ownership
 
-//By using a reference instead of a pointer, we do not pass ownership
+    //Using a reference is called borrowing, because we use the value but don't take ownership
 
+    let s1 = String::from("hello");
 
-  let s1 = String::from("hello");
+    let len = calculate_length(&s1);
 
-  let len = calculate_length(&s1);
-
-  println!("The length of '{}', is {}", s1, len);
-
+    println!("The length of '{}', is {}", s1, len);
 }
 
-fn takes_ownership(some_string: String) { // some_string comes into scope
+fn takes_ownership(some_string: String) {
+    // some_string comes into scope
     println!("{}", some_string);
 } // Here, some_string goes out of scope and `drop` is called. The backing
   // memory is freed.
 
-fn makes_copy(some_integer: i32) { // some_integer comes into scope
+fn makes_copy(some_integer: i32) {
+    // some_integer comes into scope
     println!("{}", some_integer);
 } // Here, some_integer goes out of scope. Nothing special happens.
 
-fn gives_ownership() -> String {             // gives_ownership will move its
+fn gives_ownership() -> String {
+    // gives_ownership will move its
     // return value into the function
     // that calls it
 
-let some_string = String::from("yours"); // some_string comes into scope
+    let some_string = String::from("yours"); // some_string comes into scope
 
-some_string                              // some_string is returned and
-    // moves out to the calling
-    // function
+    some_string // some_string is returned and
+                // moves out to the calling
+                // function
 }
 
 // This function takes a String and returns one
-fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
+fn takes_and_gives_back(a_string: String) -> String {
+    // a_string comes into
     // scope
 
-a_string  // a_string is returned and moves out to the calling function
-
+    a_string // a_string is returned and moves out to the calling function
 }
 
 fn calculate_length(s: &String) -> usize {
