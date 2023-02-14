@@ -114,6 +114,16 @@ fn main() {
 } // Here, s3 goes out of scope and is dropped. s2 was moved, so nothing
   // happens. s1 goes out of scope and is dropped.}
 
+//References and Borrowing
+
+//By using a reference instead of a pointer, we do not pass ownership
+
+
+  let s1 = String::from("hello");
+
+  let len = calculate_length(&s1);
+
+  println!("The length of '{}', is {}", s1, len);
 
 }
 
@@ -142,4 +152,9 @@ fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
     // scope
 
 a_string  // a_string is returned and moves out to the calling function
+
+}
+
+fn calculate_length(s: &String) -> usize {
+    s.len()
 }
