@@ -15,7 +15,7 @@ fn main() {
     let world = &hello_string[6..11];
     //same as &hello_string[6..] (will go until end of String)
     
-    let word = first_word(&hello_string);
+    let word = first_word(&hello_string[..]);
 
     println!("The first word of the String is: {}", word);
 
@@ -26,7 +26,7 @@ fn main() {
 
 }
 
-fn first_word(s: &String) -> &str {//Takes a String ref in, gives an index back
+fn first_word(s: &str) -> &str {//Takes a String ref in, gives an index back
     let bytes = s.as_bytes();//let's convert the string into bytes
 
     println!("{:?}",bytes);
