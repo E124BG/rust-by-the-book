@@ -4,6 +4,11 @@ fn main() {
 
     exercise_2();
 
+    exercise_3();
+
+    exercise_4();
+
+
 
     //based on https://practice.rs/variables.html
 
@@ -36,4 +41,24 @@ fn exercise_2() {
 
 fn exercise_3(){
     // fix the error below with least ammount of modification
+
+    let x: i32 = 10;
+    let y = 0;
+    {
+        let y: i32  = 5;
+        println!("The value of x is {} and value of y is {}", x, y);
+    }
+    println!("The value of x is {} and value of y is {}", x, y);
+
+
+}
+
+fn exercise_4() {
+    let x = define_x();
+    println!("{}, world", x);
+}
+
+fn define_x() -> &'static str {
+    let x = "hello";
+    x
 }
