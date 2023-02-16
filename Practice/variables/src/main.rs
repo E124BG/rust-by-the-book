@@ -8,6 +8,11 @@ fn main() {
 
     exercise_4();
 
+    exercise_5();
+
+    exercise_6()
+
+
 
 
     //based on https://practice.rs/variables.html
@@ -62,3 +67,31 @@ fn define_x() -> &'static str {
     let x = "hello";
     x
 }
+
+fn exercise_5() {
+    let x: i32 = 5;
+    {
+        let x = 12;
+        assert_eq!(x, 12);
+    }
+
+    assert_eq!(x, 5);
+
+    let x = 42;
+    println!("{}", x); // Prints "42".
+}
+
+fn exercise_6() {
+    let mut _x: i32 = 1;
+    _x = 7;
+    // Shadowing and re-binding
+    let _x = _x; 
+
+    let _y = 4;
+    // Shadowing
+    let _y = "I can also be bound to text!"; 
+
+    println!("Success!");
+}
+
+
