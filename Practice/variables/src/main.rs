@@ -1,4 +1,5 @@
 fn main() {
+
     exercise_1();
 
     exercise_2();
@@ -13,10 +14,17 @@ fn main() {
 
     exercise_7();
 
+
+
+
     //based on https://practice.rs/variables.html
+
+
+
 }
 
-fn exercise_1() {
+fn exercise_1(){
+
     //1.
     // Fix the error below with least amount of modification to the code
 
@@ -25,28 +33,31 @@ fn exercise_1() {
 
     assert_eq!(x, 5);
     println!("Success!");
+
 }
 
 fn exercise_2() {
     //Fill the blanks in the code to make it compile
 
     let mut x = 1;
-    x += 2;
-
+    x += 2; 
+    
     assert_eq!(x, 3);
     println!("Success!");
 }
 
-fn exercise_3() {
+fn exercise_3(){
     // fix the error below with least ammount of modification
 
     let x: i32 = 10;
     let y = 0;
     {
-        let y: i32 = 5;
+        let y: i32  = 5;
         println!("The value of x is {} and value of y is {}", x, y);
     }
     println!("The value of x is {} and value of y is {}", x, y);
+
+
 }
 
 fn exercise_4() {
@@ -76,16 +87,16 @@ fn exercise_6() {
     let mut _x: i32 = 1;
     _x = 7;
     // Shadowing and re-binding
-    let _x = _x;
+    let _x = _x; 
 
     let _y = 4;
     // Shadowing
-    let _y = "I can also be bound to text!";
+    let _y = "I can also be bound to text!"; 
 
     println!("Success!");
 }
 
-fn exercise_7() {
+fn exercise_7(){
     //fix the warning (unused var)
 
     //sol 1 : use the var
@@ -98,3 +109,5 @@ fn exercise_7() {
 
     let _x0 = 1;
 }
+
+
