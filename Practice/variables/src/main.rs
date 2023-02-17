@@ -14,6 +14,10 @@ fn main() {
 
     exercise_7();
 
+    exercise_8();
+
+    exercise_9();
+
 
 
 
@@ -108,6 +112,26 @@ fn exercise_7(){
     //sol 2 : name the var with underscore
 
     let _x0 = 1;
+}
+
+fn exercise_8(){
+    let (mut x, y) = (1, 2);
+    x += 2;
+
+    assert_eq!(x, 3);
+    assert_eq!(y, 2);
+
+    println!("Success!");
+}
+
+fn exercise_9(){
+    let (x, y);
+    (x,..) = (3, 4);
+    [.., y] = [1, 2];
+    // Fill the blank to make the code work
+    assert_eq!([x,y], [3,2]);
+
+    println!("Success!");
 }
 
 
