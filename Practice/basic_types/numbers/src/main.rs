@@ -34,6 +34,7 @@ fn exercise_3() {
     println!("Success!");
 }
 
+// Get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
 fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
