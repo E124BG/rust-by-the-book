@@ -1,3 +1,5 @@
+#[derive(Debug)]
+//allows to print debug info about the struct
 struct Rectangle {
     //def of the struct with 2 fields
     width: u32,
@@ -10,6 +12,8 @@ fn main() {
         width: 30,
         height: 50,
     };
+
+    println!("rect1 is {:?}", rect1); //:? will print debug info
 
     println!(
         "The calculate_area_rectangle of the rectangle is {} square pixels.",
