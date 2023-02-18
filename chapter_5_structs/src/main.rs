@@ -25,6 +25,10 @@ fn main() {
         email: String::from("another@example.com"),
         ..user2
     };
+
+    //Tuple structs
+    let black = Color(0, 0, 0);
+    let origin = Point(0, 0, 0);
 }
 
 struct User {
@@ -43,3 +47,6 @@ fn build_user(email: String, username: String) -> User {
         sign_in_count: 1,
     }
 }
+
+struct Color(i32, i32, i32)
+struct Point(i32, i32, i32)
