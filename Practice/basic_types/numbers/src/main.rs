@@ -8,6 +8,8 @@ fn main() {
     exercise_4();
 
     exercise_5();
+
+    exercise_6();
 }
 
 fn exercise_1() {
@@ -56,3 +58,8 @@ fn exercise_5() {
     let v2 = i8::checked_add(119, 8).unwrap();
     println!("{},{}",v1,v2);
  }
+
+ fn exercise_6() {
+    let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
+    assert!(v == 1597);
+}
