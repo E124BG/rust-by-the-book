@@ -4,6 +4,8 @@ fn main() {
     exercise_2();
 
     exercise_3();
+
+    exercise_4();
 }
 
 fn exercise_1() {
@@ -37,4 +39,13 @@ fn exercise_3() {
 // Get the type of given variable, return a string representation of the type  , e.g "i8", "u8", "i32", "u32"
 fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
+}
+
+fn exercise_4 () {
+    assert_eq!(i8::MAX, 127);// -128 to 127
+    println!("Success! 1 ");
+
+    assert_eq!(u8::MAX, 255);// 0 to 255
+
+    println!("Success! 2 ");
 }
