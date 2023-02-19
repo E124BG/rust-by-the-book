@@ -6,6 +6,8 @@ fn main() {
     exercise_3();
 
     exercise_4();
+
+    exercise_5();
 }
 
 fn exercise_1() {
@@ -43,9 +45,14 @@ fn type_of<T>(_: &T) -> String {
 
 fn exercise_4 () {
     assert_eq!(i8::MAX, 127);// -128 to 127
-    println!("Success! 1 ");
 
     assert_eq!(u8::MAX, 255);// 0 to 255
 
-    println!("Success! 2 ");
+    println!("Success!");
 }
+
+fn exercise_5() {
+    let v1 = 247_u8 + 8;
+    let v2 = i8::checked_add(119, 8).unwrap();
+    println!("{},{}",v1,v2);
+ }
