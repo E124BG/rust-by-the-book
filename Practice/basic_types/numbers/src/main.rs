@@ -45,10 +45,10 @@ fn type_of<T>(_: &T) -> String {
     format!("{}", std::any::type_name::<T>())
 }
 
-fn exercise_4 () {
-    assert_eq!(i8::MAX, 127);// -128 to 127
+fn exercise_4() {
+    assert_eq!(i8::MAX, 127); // -128 to 127
 
-    assert_eq!(u8::MAX, 255);// 0 to 255
+    assert_eq!(u8::MAX, 255); // 0 to 255
 
     println!("Success!");
 }
@@ -56,10 +56,10 @@ fn exercise_4 () {
 fn exercise_5() {
     let v1 = 247_u8 + 8;
     let v2 = i8::checked_add(119, 8).unwrap();
-    println!("{},{}",v1,v2);
- }
+    println!("{},{}", v1, v2);
+}
 
- fn exercise_6() {
+fn exercise_6() {
     let v = 1_024 + 0xff + 0o77 + 0b1111_1111;
     assert!(v == 1597);
 }
