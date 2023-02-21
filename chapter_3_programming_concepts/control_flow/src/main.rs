@@ -1,5 +1,4 @@
 fn main() {
-
     //if statements
 
     let number = 6;
@@ -21,7 +20,6 @@ fn main() {
 
     println!("The value of number is: {number}");
 
-
     //loops
 
     let mut counter = 0;
@@ -30,7 +28,7 @@ fn main() {
         counter += 1;
 
         if counter == 10 {
-            break counter * 2;//breaks the inner most loop
+            break counter * 2; //breaks the inner most loop
         }
     };
 
@@ -59,7 +57,6 @@ fn main() {
     }
     println!("End count = {count}");
 
-
     //conditional loops with while
 
     let mut number = 3;
@@ -80,4 +77,3 @@ fn main() {
         println!("the value is: {element}");
     }
 }
-
